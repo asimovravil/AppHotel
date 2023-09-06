@@ -11,6 +11,8 @@
 		F1A357482AA878FF00A24AEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A357472AA878FF00A24AEC /* SceneDelegate.swift */; };
 		F1A3574F2AA8790200A24AEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1A3574E2AA8790200A24AEC /* Assets.xcassets */; };
 		F1A357522AA8790200A24AEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A357502AA8790200A24AEC /* LaunchScreen.storyboard */; };
+		F1A3576A2AA89D9000A24AEC /* HotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A357692AA89D9000A24AEC /* HotelViewController.swift */; };
+		F1A3576D2AA89DF200A24AEC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F1A3576C2AA89DF200A24AEC /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,7 @@
 		F1A3574E2AA8790200A24AEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1A357512AA8790200A24AEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1A357532AA8790200A24AEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1A357692AA89D9000A24AEC /* HotelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1A3576D2AA89DF200A24AEC /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				F1A357592AA8793800A24AEC /* Application */,
+				F1A3576E2AA89ECF00A24AEC /* Controllers */,
 				F1A3575C2AA879A200A24AEC /* Resources */,
 				F1A3575A2AA8798200A24AEC /* Storyboards */,
 				F1A3575B2AA8799300A24AEC /* Supporting Files */,
@@ -93,6 +98,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		F1A3576E2AA89ECF00A24AEC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F1A357692AA89D9000A24AEC /* HotelViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -109,6 +122,9 @@
 			dependencies = (
 			);
 			name = AppHotel;
+			packageProductDependencies = (
+				F1A3576C2AA89DF200A24AEC /* SnapKit */,
+			);
 			productName = AppHotel;
 			productReference = F1A357422AA878FF00A24AEC /* AppHotel.app */;
 			productType = "com.apple.product-type.application";
@@ -137,6 +153,9 @@
 				Base,
 			);
 			mainGroup = F1A357392AA878FF00A24AEC;
+			packageReferences = (
+				F1A3576B2AA89DF200A24AEC /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = F1A357432AA878FF00A24AEC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -164,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1A357462AA878FF00A24AEC /* AppDelegate.swift in Sources */,
+				F1A3576A2AA89D9000A24AEC /* HotelViewController.swift in Sources */,
 				F1A357482AA878FF00A24AEC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +392,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F1A3576B2AA89DF200A24AEC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F1A3576C2AA89DF200A24AEC /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1A3576B2AA89DF200A24AEC /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F1A3573A2AA878FF00A24AEC /* Project object */;
 }
