@@ -16,9 +16,9 @@ final class HotelViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("К выбору номера", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 20
-        button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 20)
+        button.backgroundColor = AppColor.blue.uiColor
+        button.layer.cornerRadius = 15
+        button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 16)
         return button
     }()
     
