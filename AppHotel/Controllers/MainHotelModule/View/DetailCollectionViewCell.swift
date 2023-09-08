@@ -132,6 +132,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         [cardDetailView, tableView, infoHotelLabel, cardLineView, cardLineLabel, cardPaidWifiView, cardPaidWifiLabel, cardAirportView, cardAirportLabel, cardBeachView, cardBeachLabel, descriptionLabel].forEach {
             contentView.addSubview($0)
         }
+        contentView.backgroundColor = AppColor.gray.uiColor
     }
     
     // MARK: - setupConstraints

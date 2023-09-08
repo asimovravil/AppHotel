@@ -20,7 +20,7 @@ final class HotelViewController: UIViewController {
         collectionView.delegate = self
         collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.reuseID)
         collectionView.register(DetailCollectionViewCell.self, forCellWithReuseIdentifier: DetailCollectionViewCell.reuseID)
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = AppColor.gray.uiColor
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
@@ -38,6 +38,7 @@ final class HotelViewController: UIViewController {
         button.backgroundColor = AppColor.blue.uiColor
         button.layer.cornerRadius = 15
         button.titleLabel?.font = UIFont(name: "SFProDisplay-Medium", size: 16)
+        button.addTarget(self, action: #selector(choiceButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -48,6 +49,7 @@ final class HotelViewController: UIViewController {
 
         setupViews()
         setupConstraints()
+        setupNavigationBar()
     }
     
     // MARK: - setupViews
@@ -56,32 +58,42 @@ final class HotelViewController: UIViewController {
         [mainCollectionView, cardButtonView, choiceButton].forEach {
             view.addSubview($0)
         }
-        self.title = "Отель"
-        navigationController?.navigationBar.barTintColor = AppColor.white.uiColor
-        view.backgroundColor = AppColor.gray.uiColor
+        view.backgroundColor = AppColor.white.uiColor
     }
     
     // MARK: - setupConstaints
     
     private func setupConstraints() {
         mainCollectionView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(100)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalTo(choiceButton.snp.top).offset(-12)
         }
-        
         cardButtonView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
             make.top.equalTo(choiceButton.snp.top).offset(-12)
         }
-
         choiceButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalToSuperview().offset(-28)
             make.height.equalTo(48)
         }
+    }
+    
+    // MARK: - Actions
+    
+    private func setupNavigationBar() {
+        self.navigationItem.title = "Отель"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func choiceButtonTapped() {
+        let controller = NumberViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     // MARK: - createLayout

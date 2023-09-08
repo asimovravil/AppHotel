@@ -30,6 +30,9 @@
 		F1A357FD2AAAC94600A24AEC /* SFProDisplay-Ultralight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1A357F42AAAC94600A24AEC /* SFProDisplay-Ultralight.ttf */; };
 		F1A357FF2AAAD42900A24AEC /* AdvantagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A357FE2AAAD42900A24AEC /* AdvantagesTableViewCell.swift */; };
 		F1A358072AAB26FF00A24AEC /* ImageCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A358062AAB26FF00A24AEC /* ImageCarouselCell.swift */; };
+		F1A3580B2AAB50FC00A24AEC /* NumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A3580A2AAB50FC00A24AEC /* NumberViewController.swift */; };
+		F1A3580D2AAB522D00A24AEC /* StandardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A3580C2AAB522D00A24AEC /* StandardTableViewCell.swift */; };
+		F1A3580F2AAB528E00A24AEC /* LuxeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A3580E2AAB528E00A24AEC /* LuxeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,9 @@
 		F1A357F42AAAC94600A24AEC /* SFProDisplay-Ultralight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Ultralight.ttf"; sourceTree = "<group>"; };
 		F1A357FE2AAAD42900A24AEC /* AdvantagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantagesTableViewCell.swift; sourceTree = "<group>"; };
 		F1A358062AAB26FF00A24AEC /* ImageCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarouselCell.swift; sourceTree = "<group>"; };
+		F1A3580A2AAB50FC00A24AEC /* NumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewController.swift; sourceTree = "<group>"; };
+		F1A3580C2AAB522D00A24AEC /* StandardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTableViewCell.swift; sourceTree = "<group>"; };
+		F1A3580E2AAB528E00A24AEC /* LuxeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuxeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				F1A358032AAADDFF00A24AEC /* MainHotelModule */,
+				F1A358082AAB50D300A24AEC /* NumberModule */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -187,6 +194,24 @@
 				F1A358022AAADDED00A24AEC /* View */,
 			);
 			path = MainHotelModule;
+			sourceTree = "<group>";
+		};
+		F1A358082AAB50D300A24AEC /* NumberModule */ = {
+			isa = PBXGroup;
+			children = (
+				F1A358092AAB50E300A24AEC /* View */,
+			);
+			path = NumberModule;
+			sourceTree = "<group>";
+		};
+		F1A358092AAB50E300A24AEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F1A3580A2AAB50FC00A24AEC /* NumberViewController.swift */,
+				F1A3580C2AAB522D00A24AEC /* StandardTableViewCell.swift */,
+				F1A3580E2AAB528E00A24AEC /* LuxeTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,12 +302,15 @@
 			files = (
 				F1A357E52AAABAC300A24AEC /* DetailCollectionViewCell.swift in Sources */,
 				F1A357462AA878FF00A24AEC /* AppDelegate.swift in Sources */,
+				F1A3580D2AAB522D00A24AEC /* StandardTableViewCell.swift in Sources */,
 				F1A357FF2AAAD42900A24AEC /* AdvantagesTableViewCell.swift in Sources */,
+				F1A3580F2AAB528E00A24AEC /* LuxeTableViewCell.swift in Sources */,
 				F1A357E32AAABABB00A24AEC /* MainCollectionViewCell.swift in Sources */,
 				F1A357E72AAABB8300A24AEC /* SectionType.swift in Sources */,
 				F1A357722AA8A00100A24AEC /* AppColor.swift in Sources */,
 				F1A3576A2AA89D9000A24AEC /* HotelViewController.swift in Sources */,
 				F1A358072AAB26FF00A24AEC /* ImageCarouselCell.swift in Sources */,
+				F1A3580B2AAB50FC00A24AEC /* NumberViewController.swift in Sources */,
 				F1A357482AA878FF00A24AEC /* SceneDelegate.swift in Sources */,
 				F1A357742AA8A14500A24AEC /* AppImage.swift in Sources */,
 			);

@@ -39,4 +39,5 @@ enum AppImage: String, AppImageProtocol {
     case ticksquare
     case closesquare
     case vectorsquare
+    case vectorBlue
 }

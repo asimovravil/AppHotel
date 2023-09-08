@@ -89,7 +89,6 @@ final class AdvantagesTableViewCell: UITableViewCell {
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(15)
         }
-
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(11)
             make.leading.equalTo(advantagesImageView.snp.trailing).offset(12)
@@ -103,7 +102,6 @@ final class AdvantagesTableViewCell: UITableViewCell {
             make.centerY.equalToSuperview()
             make.size.equalTo(12)
         }
-
     }
 
     // MARK: - Configure Cell

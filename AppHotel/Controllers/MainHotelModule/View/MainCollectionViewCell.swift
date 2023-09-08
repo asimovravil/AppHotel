@@ -75,7 +75,7 @@ final class MainCollectionViewCell: UICollectionViewCell {
     private lazy var descriptionPriceLabel: UILabel = {
         let label = UILabel()
         label.text = "за тур с перелётом"
-        label.textColor = AppColor.black.uiColor
+        label.textColor = AppColor.grayDark.uiColor
         label.font = UIFont(name: "SFProDisplay-Regular", size: 16)
         return label
     }()
@@ -99,11 +99,12 @@ final class MainCollectionViewCell: UICollectionViewCell {
             contentView.addSubview($0)
         }
         
+        contentView.backgroundColor = AppColor.gray.uiColor
+        
         let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeLeft))
         swipeLeftGesture.direction = .left
         imageCarousel.addGestureRecognizer(swipeLeftGesture)
 
-        // Добавьте жест свайпа вправо
         let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeRight))
         swipeRightGesture.direction = .right
         imageCarousel.addGestureRecognizer(swipeRightGesture)
@@ -115,7 +116,6 @@ final class MainCollectionViewCell: UICollectionViewCell {
         cardMainView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-
         imageCarousel.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview().offset(16)

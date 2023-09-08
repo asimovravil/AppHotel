@@ -11,6 +11,7 @@ import UIKit
 class ImageCarouselCell: UIView {
     private var imageViews: [UIImageView] = []
     private var currentIndex: Int = 0
+    private var stackView: UIStackView!
 
     init(images: [UIImage]) {
         super.init(frame: .zero)
