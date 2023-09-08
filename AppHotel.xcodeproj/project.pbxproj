@@ -28,6 +28,7 @@
 		F1A357FB2AAAC94600A24AEC /* SFProDisplay-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1A357F22AAAC94600A24AEC /* SFProDisplay-Thin.ttf */; };
 		F1A357FC2AAAC94600A24AEC /* SFProDisplay-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1A357F32AAAC94600A24AEC /* SFProDisplay-Heavy.ttf */; };
 		F1A357FD2AAAC94600A24AEC /* SFProDisplay-Ultralight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1A357F42AAAC94600A24AEC /* SFProDisplay-Ultralight.ttf */; };
+		F1A357FF2AAAD42900A24AEC /* AdvantagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A357FE2AAAD42900A24AEC /* AdvantagesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		F1A357F22AAAC94600A24AEC /* SFProDisplay-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Thin.ttf"; sourceTree = "<group>"; };
 		F1A357F32AAAC94600A24AEC /* SFProDisplay-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Heavy.ttf"; sourceTree = "<group>"; };
 		F1A357F42AAAC94600A24AEC /* SFProDisplay-Ultralight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Ultralight.ttf"; sourceTree = "<group>"; };
+		F1A357FE2AAAD42900A24AEC /* AdvantagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantagesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				F1A357E22AAABABB00A24AEC /* MainCollectionViewCell.swift */,
 				F1A357E42AAABAC300A24AEC /* DetailCollectionViewCell.swift */,
 				F1A357E62AAABB8300A24AEC /* SectionType.swift */,
+				F1A357FE2AAAD42900A24AEC /* AdvantagesTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			files = (
 				F1A357E52AAABAC300A24AEC /* DetailCollectionViewCell.swift in Sources */,
 				F1A357462AA878FF00A24AEC /* AppDelegate.swift in Sources */,
+				F1A357FF2AAAD42900A24AEC /* AdvantagesTableViewCell.swift in Sources */,
 				F1A357E32AAABABB00A24AEC /* MainCollectionViewCell.swift in Sources */,
 				F1A357E72AAABB8300A24AEC /* SectionType.swift in Sources */,
 				F1A357722AA8A00100A24AEC /* AppColor.swift in Sources */,

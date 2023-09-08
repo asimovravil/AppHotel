@@ -32,5 +32,8 @@ extension AppImageProtocol {
 
 enum AppImage: String, AppImageProtocol {
     case hotel
-    
+    case emojihappy
+    case ticksquare
+    case closesquare
+    case vectorsquare
 }

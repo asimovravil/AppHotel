@@ -29,4 +29,9 @@ extension AppColorProtocol {
 enum AppColor: String, AppColorProtocol {
     case blue
     case gray
+    case grayCard
+    case grayDark
+    case black
+    case blackLight
+    case white
 }

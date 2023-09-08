@@ -27,7 +27,7 @@ final class HotelViewController: UIViewController {
     private lazy var choiceButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("К выбору номера", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(AppColor.white.uiColor, for: .normal)
         button.backgroundColor = AppColor.blue.uiColor
         button.layer.cornerRadius = 15
         button.titleLabel?.font = UIFont(name: "SFProDisplay-Medium", size: 16)
@@ -46,9 +46,10 @@ final class HotelViewController: UIViewController {
     // MARK: - setupViews
     
     private func setupViews() {
-        view.addSubview(mainCollectionView)
-        view.addSubview(choiceButton)
-        view.backgroundColor = .white
+        [mainCollectionView, choiceButton].forEach {
+            view.addSubview($0)
+        }
+        view.backgroundColor = AppColor.white.uiColor
     }
     
     // MARK: - setupConstaints
