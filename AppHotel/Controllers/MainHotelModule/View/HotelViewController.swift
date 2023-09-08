@@ -49,6 +49,7 @@ final class HotelViewController: UIViewController {
         [mainCollectionView, choiceButton].forEach {
             view.addSubview($0)
         }
+        self.title = "Отель"
         view.backgroundColor = AppColor.white.uiColor
     }
     
