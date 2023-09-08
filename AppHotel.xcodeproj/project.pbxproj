@@ -29,6 +29,7 @@
 		F1A357FC2AAAC94600A24AEC /* SFProDisplay-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1A357F32AAAC94600A24AEC /* SFProDisplay-Heavy.ttf */; };
 		F1A357FD2AAAC94600A24AEC /* SFProDisplay-Ultralight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1A357F42AAAC94600A24AEC /* SFProDisplay-Ultralight.ttf */; };
 		F1A357FF2AAAD42900A24AEC /* AdvantagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A357FE2AAAD42900A24AEC /* AdvantagesTableViewCell.swift */; };
+		F1A358072AAB26FF00A24AEC /* ImageCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A358062AAB26FF00A24AEC /* ImageCarouselCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		F1A357F32AAAC94600A24AEC /* SFProDisplay-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Heavy.ttf"; sourceTree = "<group>"; };
 		F1A357F42AAAC94600A24AEC /* SFProDisplay-Ultralight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Ultralight.ttf"; sourceTree = "<group>"; };
 		F1A357FE2AAAD42900A24AEC /* AdvantagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantagesTableViewCell.swift; sourceTree = "<group>"; };
+		F1A358062AAB26FF00A24AEC /* ImageCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarouselCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				F1A357E62AAABB8300A24AEC /* SectionType.swift */,
+				F1A358062AAB26FF00A24AEC /* ImageCarouselCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				F1A357E72AAABB8300A24AEC /* SectionType.swift in Sources */,
 				F1A357722AA8A00100A24AEC /* AppColor.swift in Sources */,
 				F1A3576A2AA89D9000A24AEC /* HotelViewController.swift in Sources */,
+				F1A358072AAB26FF00A24AEC /* ImageCarouselCell.swift in Sources */,
 				F1A357482AA878FF00A24AEC /* SceneDelegate.swift in Sources */,
 				F1A357742AA8A14500A24AEC /* AppImage.swift in Sources */,
 			);

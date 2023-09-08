@@ -21,10 +21,9 @@ final class MainCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    private lazy var hotelImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = AppImage.hotel.uiImage
-        return imageView
+    private lazy var imageCarousel: ImageCarouselCell = {
+        let carousel = ImageCarouselCell(images: [UIImage(named: "hotel")!, UIImage(named: "hotel1")!, UIImage(named: "hotel2")!])
+        return carousel
     }()
     
     private lazy var starImageView: UIImageView = {
@@ -96,9 +95,18 @@ final class MainCollectionViewCell: UICollectionViewCell {
     // MARK: - setupViews
     
     private func setupViews() {
-        [cardMainView, hotelImageView, starImageView, cardGradeView, cardGradeLabel, nameHotelLabel, detailHotelLabel, priceLabel, descriptionPriceLabel].forEach {
+        [cardMainView, imageCarousel, starImageView, cardGradeView, cardGradeLabel, nameHotelLabel, detailHotelLabel, priceLabel, descriptionPriceLabel].forEach {
             contentView.addSubview($0)
         }
+        
+        let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeLeft))
+        swipeLeftGesture.direction = .left
+        imageCarousel.addGestureRecognizer(swipeLeftGesture)
+
+        // Добавьте жест свайпа вправо
+        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeRight))
+        swipeRightGesture.direction = .right
+        imageCarousel.addGestureRecognizer(swipeRightGesture)
     }
     
     // MARK: - setupConstraints
@@ -108,13 +116,13 @@ final class MainCollectionViewCell: UICollectionViewCell {
             make.edges.equalToSuperview()
         }
 
-        hotelImageView.snp.makeConstraints { make in
+        imageCarousel.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
         }
         cardGradeView.snp.makeConstraints { make in
-            make.top.equalTo(hotelImageView.snp.bottom).offset(16)
+            make.top.equalTo(imageCarousel.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.width.equalTo(149)
             make.height.equalTo(29)
@@ -146,5 +154,14 @@ final class MainCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(detailHotelLabel.snp.bottom).offset(30)
             make.leading.equalTo(priceLabel.snp.trailing).offset(8)
         }
+    }
+    
+    // MARK: - setupScroll
+    
+    @objc private func handleSwipeLeft() {
+        imageCarousel.scrollToNext()
+    }
+
+    @objc private func handleSwipeRight() {
     }
 }
