@@ -21,7 +21,14 @@ final class HotelViewController: UIViewController {
         collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.reuseID)
         collectionView.register(DetailCollectionViewCell.self, forCellWithReuseIdentifier: DetailCollectionViewCell.reuseID)
         collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
         return collectionView
+    }()
+    
+    private lazy var cardButtonView: UIView = {
+        let view = UIView()
+        view.backgroundColor = AppColor.white.uiColor
+        return view
     }()
     
     private lazy var choiceButton: UIButton = {
@@ -46,11 +53,12 @@ final class HotelViewController: UIViewController {
     // MARK: - setupViews
     
     private func setupViews() {
-        [mainCollectionView, choiceButton].forEach {
+        [mainCollectionView, cardButtonView, choiceButton].forEach {
             view.addSubview($0)
         }
         self.title = "Отель"
-        view.backgroundColor = AppColor.white.uiColor
+        navigationController?.navigationBar.barTintColor = AppColor.white.uiColor
+        view.backgroundColor = AppColor.gray.uiColor
     }
     
     // MARK: - setupConstaints
@@ -60,8 +68,14 @@ final class HotelViewController: UIViewController {
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.bottom.equalTo(choiceButton.snp.top).offset(-10)
+            make.bottom.equalTo(choiceButton.snp.top).offset(-12)
         }
+        
+        cardButtonView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(choiceButton.snp.top).offset(-12)
+        }
+
         choiceButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
@@ -85,12 +99,20 @@ final class HotelViewController: UIViewController {
     }
     
     private func mainSectionLayout() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(530))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(430))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(530))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(430))
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitems: [item]
+        )
         let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 10
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 8,
+            trailing: 0
+        )
         return section
     }
 
@@ -98,13 +120,19 @@ final class HotelViewController: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(428))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(428))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitems: [item]
+        )
         let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 10
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 12,
+            trailing: 0
+        )
         return section
     }
-
-
 }
 
 extension HotelViewController: UICollectionViewDataSource, UICollectionViewDelegate {

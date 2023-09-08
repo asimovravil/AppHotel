@@ -13,6 +13,13 @@ final class DetailCollectionViewCell: UICollectionViewCell {
 
     // MARK: - UI
     
+    private lazy var cardDetailView: UIView = {
+        let view = UIView()
+        view.backgroundColor = AppColor.white.uiColor
+        view.layer.cornerRadius = 12
+        return view
+    }()
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.rowHeight = 60
@@ -122,7 +129,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
     // MARK: - setupViews
     
     private func setupViews() {
-        [tableView, infoHotelLabel, cardLineView, cardLineLabel, cardPaidWifiView, cardPaidWifiLabel, cardAirportView, cardAirportLabel, cardBeachView, cardBeachLabel, descriptionLabel].forEach {
+        [cardDetailView, tableView, infoHotelLabel, cardLineView, cardLineLabel, cardPaidWifiView, cardPaidWifiLabel, cardAirportView, cardAirportLabel, cardBeachView, cardBeachLabel, descriptionLabel].forEach {
             contentView.addSubview($0)
         }
     }
@@ -130,6 +137,9 @@ final class DetailCollectionViewCell: UICollectionViewCell {
     // MARK: - setupConstraints
     
     private func setupConstraints() {
+        cardDetailView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         tableView.snp.makeConstraints { make in
             make.top.equalTo(descriptionLabel.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)

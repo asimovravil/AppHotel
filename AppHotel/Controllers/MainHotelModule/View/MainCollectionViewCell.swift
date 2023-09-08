@@ -13,6 +13,14 @@ final class MainCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI
     
+    private lazy var cardMainView: UIView = {
+        let view = UIView()
+        view.backgroundColor = AppColor.white.uiColor
+        view.layer.cornerRadius = 12
+        view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        return view
+    }()
+    
     private lazy var hotelImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = AppImage.hotel.uiImage
@@ -88,7 +96,7 @@ final class MainCollectionViewCell: UICollectionViewCell {
     // MARK: - setupViews
     
     private func setupViews() {
-        [hotelImageView, starImageView, cardGradeView, cardGradeLabel, nameHotelLabel, detailHotelLabel, priceLabel, descriptionPriceLabel].forEach {
+        [cardMainView, hotelImageView, starImageView, cardGradeView, cardGradeLabel, nameHotelLabel, detailHotelLabel, priceLabel, descriptionPriceLabel].forEach {
             contentView.addSubview($0)
         }
     }
@@ -96,6 +104,10 @@ final class MainCollectionViewCell: UICollectionViewCell {
     // MARK: - setupConstraints
     
     private func setupConstraints() {
+        cardMainView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
         hotelImageView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview().offset(16)
