@@ -30,7 +30,7 @@ final class HotelViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = AppColor.blue.uiColor
         button.layer.cornerRadius = 15
-        button.titleLabel?.font = UIFont(name: "Montserrat-Medium", size: 16)
+        button.titleLabel?.font = UIFont(name: "SFProDisplay-Medium", size: 16)
         return button
     }()
     
