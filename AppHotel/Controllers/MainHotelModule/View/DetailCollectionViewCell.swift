@@ -203,6 +203,8 @@ extension DetailCollectionViewCell: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCellID", for: indexPath) as! AdvantagesTableViewCell
+        cell.selectionStyle = .none
+        cell.isUserInteractionEnabled = false
         cell.backgroundColor = AppColor.grayCard.uiColor
         switch indexPath.row {
         case 0:
@@ -216,9 +218,6 @@ extension DetailCollectionViewCell: UITableViewDataSource, UITableViewDelegate {
             cell.descriptionName = nil
         }
         return cell
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

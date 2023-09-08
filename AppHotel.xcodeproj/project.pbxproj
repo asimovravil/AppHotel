@@ -137,11 +137,7 @@
 		F1A3576E2AA89ECF00A24AEC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F1A357692AA89D9000A24AEC /* HotelViewController.swift */,
-				F1A357E22AAABABB00A24AEC /* MainCollectionViewCell.swift */,
-				F1A357E42AAABAC300A24AEC /* DetailCollectionViewCell.swift */,
-				F1A357E62AAABB8300A24AEC /* SectionType.swift */,
-				F1A357FE2AAAD42900A24AEC /* AdvantagesTableViewCell.swift */,
+				F1A358032AAADDFF00A24AEC /* MainHotelModule */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -160,6 +156,34 @@
 				F1A357F42AAAC94600A24AEC /* SFProDisplay-Ultralight.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F1A358012AAADDD900A24AEC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F1A357E62AAABB8300A24AEC /* SectionType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F1A358022AAADDED00A24AEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F1A357692AA89D9000A24AEC /* HotelViewController.swift */,
+				F1A357E22AAABABB00A24AEC /* MainCollectionViewCell.swift */,
+				F1A357E42AAABAC300A24AEC /* DetailCollectionViewCell.swift */,
+				F1A357FE2AAAD42900A24AEC /* AdvantagesTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F1A358032AAADDFF00A24AEC /* MainHotelModule */ = {
+			isa = PBXGroup;
+			children = (
+				F1A358012AAADDD900A24AEC /* Model */,
+				F1A358022AAADDED00A24AEC /* View */,
+			);
+			path = MainHotelModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
