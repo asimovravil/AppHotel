@@ -29,7 +29,7 @@ final class AcceptedViewController: UIViewController {
     
     private lazy var acceptedSubTitle: UILabel = {
         let label = UILabel()
-        label.text = "Подтверждение заказа №104893 может\nзанять некоторое время (от 1 часа до суток).\nКак только мы получим ответ от\nтуроператора, вам на почту придет уведомление."
+        label.text = "Подтверждение заказа №\(generateRandomOrderNumber()) может\nзанять некоторое время (от 1 часа до суток).\nКак только мы получим ответ от\nтуроператора, вам на почту придет уведомление."
         label.textColor = AppColor.grayDark.uiColor
         label.font = UIFont(name: "SFProDisplay-Regular", size: 16)
         label.textAlignment = .center
@@ -118,4 +118,9 @@ final class AcceptedViewController: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
+    // MARK: - Helper Methods
+    
+    private func generateRandomOrderNumber() -> Int {
+        return Int.random(in: 100000...999999)
+    }
 }
