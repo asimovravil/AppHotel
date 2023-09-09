@@ -9,13 +9,14 @@ import UIKit
 import SnapKit
 
 final class BookingViewController: UIViewController {
-
+    
     // MARK: - UI
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         let screenHeight = UIScreen.main.bounds.height
         tableView.register(BookingTableViewCell.self, forCellReuseIdentifier: BookingTableViewCell.reuseID)
+        tableView.register(TouristTableViewCell.self, forCellReuseIdentifier: TouristTableViewCell.reuseID)
         tableView.layer.cornerRadius = 12
         tableView.dataSource = self
         tableView.delegate = self
@@ -46,7 +47,7 @@ final class BookingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupViews()
         setupConstraints()
         setupNavigationBar()
@@ -100,18 +101,45 @@ final class BookingViewController: UIViewController {
 }
 
 extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section == 0 {
+            return 1
+        } else if section == 1 {
+            return 1
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 665.0
+        } else if indexPath.section == 1 {
+            return 1000.0
+        }
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: BookingTableViewCell.reuseID, for: indexPath) as? BookingTableViewCell else {
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: BookingTableViewCell.reuseID, for: indexPath) as? BookingTableViewCell else {
                 fatalError("Could not cast to BookingTableViewCell")
             }
             cell.selectionStyle = .none
             cell.backgroundColor = AppColor.gray.uiColor
             return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TouristTableViewCell.reuseID, for: indexPath) as? TouristTableViewCell else {
+                fatalError("Could not cast to TouristTableViewCell")
+            }
+            cell.selectionStyle = .none
+            cell.backgroundColor = AppColor.gray.uiColor
+            return cell
         }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }

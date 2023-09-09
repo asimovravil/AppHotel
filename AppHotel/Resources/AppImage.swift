@@ -41,4 +41,6 @@ enum AppImage: String, AppImageProtocol {
     case closesquare
     case vectorsquare
     case vectorBlue
+    case vectorup
+    case vectordown
 }
