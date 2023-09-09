@@ -58,6 +58,7 @@ final class NumberViewController: UIViewController {
     
     private func setupNavigationBar() {
         self.navigationItem.title = "Steigenberger Makadi"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }
 
@@ -80,12 +81,20 @@ extension NumberViewController: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StandardTableViewCell.reuseID, for: indexPath) as? StandardTableViewCell else {
                 fatalError("Could not cast to StandardTableViewCell")
             }
+            cell.standartNumberButtonTappedHandler = {
+                let bookingViewController = BookingViewController()
+                self.navigationController?.pushViewController(bookingViewController, animated: true)
+            }
             cell.selectionStyle = .none
             cell.backgroundColor = AppColor.gray.uiColor
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: LuxeTableViewCell.reuseID, for: indexPath) as? LuxeTableViewCell else {
                 fatalError("Could not cast to LuxeTableViewCell")
+            }
+            cell.luxeNumberButtonTappedHandler = {
+                let bookingViewController = BookingViewController()
+                self.navigationController?.pushViewController(bookingViewController, animated: true)
             }
             cell.selectionStyle = .none
             cell.backgroundColor = AppColor.gray.uiColor

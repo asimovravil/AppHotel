@@ -10,6 +10,7 @@ import SnapKit
 
 final class LuxeTableViewCell: UITableViewCell {
     static let reuseID = String(describing: LuxeTableViewCell.self)
+    var luxeNumberButtonTappedHandler: (() -> Void)?
 
     // MARK: - UI
     
@@ -111,6 +112,7 @@ final class LuxeTableViewCell: UITableViewCell {
         button.backgroundColor = AppColor.blue.uiColor
         button.layer.cornerRadius = 15
         button.titleLabel?.font = UIFont(name: "SFProDisplay-Medium", size: 16)
+        button.addTarget(self, action: #selector(luxeNumberButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -216,6 +218,12 @@ final class LuxeTableViewCell: UITableViewCell {
             make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(48)
         }
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func luxeNumberButtonTapped(_ sender: UIButton) {
+        luxeNumberButtonTappedHandler?()
     }
     
     // MARK: - setupScroll

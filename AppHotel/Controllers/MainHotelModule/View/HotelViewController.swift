@@ -71,8 +71,8 @@ final class HotelViewController: UIViewController {
             make.bottom.equalTo(choiceButton.snp.top).offset(-12)
         }
         cardButtonView.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalToSuperview()
             make.top.equalTo(choiceButton.snp.top).offset(-12)
+            make.leading.trailing.bottom.equalToSuperview()
         }
         choiceButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
@@ -82,7 +82,7 @@ final class HotelViewController: UIViewController {
         }
     }
     
-    // MARK: - Actions
+    // MARK: - setupNavigationBar
     
     private func setupNavigationBar() {
         self.navigationItem.title = "Отель"

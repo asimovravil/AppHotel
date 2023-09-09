@@ -10,6 +10,7 @@ import SnapKit
 
 final class StandardTableViewCell: UITableViewCell {
     static let reuseID = String(describing: StandardTableViewCell.self)
+    var standartNumberButtonTappedHandler: (() -> Void)?
 
     // MARK: - UI
     
@@ -112,6 +113,7 @@ final class StandardTableViewCell: UITableViewCell {
         button.backgroundColor = AppColor.blue.uiColor
         button.layer.cornerRadius = 15
         button.titleLabel?.font = UIFont(name: "SFProDisplay-Medium", size: 16)
+        button.addTarget(self, action: #selector(standartNumberButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -220,6 +222,12 @@ final class StandardTableViewCell: UITableViewCell {
             make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(48)
         }
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func standartNumberButtonTapped(_ sender: UIButton) {
+        standartNumberButtonTappedHandler?()
     }
     
     // MARK: - setupScroll

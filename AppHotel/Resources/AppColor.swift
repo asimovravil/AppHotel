@@ -34,5 +34,6 @@ enum AppColor: String, AppColorProtocol {
     case grayDark
     case black
     case blackLight
+    case textField
     case white
 }
