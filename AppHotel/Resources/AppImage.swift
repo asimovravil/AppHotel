@@ -35,6 +35,7 @@ enum AppImage: String, AppImageProtocol {
     case hotel1
     case hotel2
     case star
+    case accepted
     case emojihappy
     case ticksquare
     case closesquare

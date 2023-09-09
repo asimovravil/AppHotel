@@ -42,6 +42,8 @@ final class BookingViewController: UIViewController {
         return button
     }()
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -91,7 +93,8 @@ final class BookingViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func paymentButtonTapped() {
-
+        let controller = AcceptedViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
 }
