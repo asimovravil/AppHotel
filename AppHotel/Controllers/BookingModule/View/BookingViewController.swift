@@ -133,7 +133,7 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 730.0
+            return 895.0
         } else if indexPath.section == 1 {
             return 900.0
         }
