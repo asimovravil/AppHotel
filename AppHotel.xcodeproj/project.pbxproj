@@ -19,6 +19,7 @@
 		F100C1AD2AADF0E900724046 /* NumberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100C1AC2AADF0E900724046 /* NumberService.swift */; };
 		F100C1B02AADF83700724046 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100C1AF2AADF83700724046 /* BookService.swift */; };
 		F100C1B22AADF83E00724046 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100C1B12AADF83E00724046 /* Book.swift */; };
+		F100C1B82AAE016B00724046 /* InputMask in Frameworks */ = {isa = PBXBuildFile; productRef = F100C1B72AAE016B00724046 /* InputMask */; };
 		F1A357462AA878FF00A24AEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A357452AA878FF00A24AEC /* AppDelegate.swift */; };
 		F1A357482AA878FF00A24AEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A357472AA878FF00A24AEC /* SceneDelegate.swift */; };
 		F1A3574F2AA8790200A24AEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1A3574E2AA8790200A24AEC /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1A3576D2AA89DF200A24AEC /* SnapKit in Frameworks */,
+				F100C1B82AAE016B00724046 /* InputMask in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +342,7 @@
 			name = AppHotel;
 			packageProductDependencies = (
 				F1A3576C2AA89DF200A24AEC /* SnapKit */,
+				F100C1B72AAE016B00724046 /* InputMask */,
 			);
 			productName = AppHotel;
 			productReference = F1A357422AA878FF00A24AEC /* AppHotel.app */;
@@ -371,6 +374,7 @@
 			mainGroup = F1A357392AA878FF00A24AEC;
 			packageReferences = (
 				F1A3576B2AA89DF200A24AEC /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F100C1B62AAE016B00724046 /* XCRemoteSwiftPackageReference "input-mask-ios" */,
 			);
 			productRefGroup = F1A357432AA878FF00A24AEC /* Products */;
 			projectDirPath = "";
@@ -642,6 +646,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F100C1B62AAE016B00724046 /* XCRemoteSwiftPackageReference "input-mask-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RedMadRobot/input-mask-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
 		F1A3576B2AA89DF200A24AEC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -653,6 +665,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F100C1B72AAE016B00724046 /* InputMask */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F100C1B62AAE016B00724046 /* XCRemoteSwiftPackageReference "input-mask-ios" */;
+			productName = InputMask;
+		};
 		F1A3576C2AA89DF200A24AEC /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F1A3576B2AA89DF200A24AEC /* XCRemoteSwiftPackageReference "SnapKit" */;

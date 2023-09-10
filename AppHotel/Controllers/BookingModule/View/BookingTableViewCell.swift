@@ -7,10 +7,26 @@
 
 import UIKit
 import SnapKit
+import InputMask
 
 final class BookingTableViewCell: UITableViewCell {
     static let reuseID = String(describing: BookingTableViewCell.self)
     var addTouristButtonAction: (() -> Void)?
+    
+    // MARK: - MaskedTextField Listener
+    
+    private lazy var phoneListener: MaskedTextFieldDelegate = {
+        let listener = MaskedTextFieldDelegate()
+        listener.onMaskedTextChangedCallback = { textField, _, isFilled in
+            let updatedText = textField.text ?? ""
+            if isFilled {
+                print("Text field is filled: \(updatedText)")
+            }
+        }
+        listener.delegate = self
+        listener.primaryMaskFormat = "+7 ([000]) [000] [00] [00]"
+        return listener
+    }()
     
     // MARK: - UI
     
@@ -210,6 +226,8 @@ final class BookingTableViewCell: UITableViewCell {
         textField.textColor = AppColor.textField.uiColor
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
         textField.leftViewMode = .always
+        textField.delegate = phoneListener
+        textField.keyboardType = .numberPad
         return textField
     }()
     
@@ -223,6 +241,7 @@ final class BookingTableViewCell: UITableViewCell {
         textField.textColor = AppColor.textField.uiColor
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
         textField.leftViewMode = .always
+        textField.keyboardType = .emailAddress
         return textField
     }()
     
