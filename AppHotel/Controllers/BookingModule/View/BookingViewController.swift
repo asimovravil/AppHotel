@@ -19,6 +19,7 @@ final class BookingViewController: UIViewController {
         let screenHeight = UIScreen.main.bounds.height
         tableView.register(BookingTableViewCell.self, forCellReuseIdentifier: BookingTableViewCell.reuseID)
         tableView.register(TouristTableViewCell.self, forCellReuseIdentifier: TouristTableViewCell.reuseID)
+        tableView.register(CheckTableViewCell.self, forCellReuseIdentifier: CheckTableViewCell.reuseID)
         tableView.layer.cornerRadius = 12
         tableView.dataSource = self
         tableView.delegate = self
@@ -120,22 +121,26 @@ final class BookingViewController: UIViewController {
 
 extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         } else if section == 1 {
             return tourists.count
+        } else if section == 2 {
+            return 1
         }
         return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 895.0
+            return 730.0
         } else if indexPath.section == 1 {
-            return 900.0
+            return 1000.0
+        } else if indexPath.section == 2 {
+            return 160.0
         }
         return UITableView.automaticDimension
     }
@@ -153,7 +158,7 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
             cell.selectionStyle = .none
             cell.backgroundColor = AppColor.gray.uiColor
             return cell
-        } else {
+        } else if indexPath.section == 1 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TouristTableViewCell.reuseID, for: indexPath) as? TouristTableViewCell else {
                 fatalError("Could not cast to TouristTableViewCell")
             }
@@ -162,7 +167,15 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
             cell.selectionStyle = .none
             cell.backgroundColor = AppColor.gray.uiColor
             return cell
+        } else if indexPath.section == 2 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CheckTableViewCell.reuseID, for: indexPath) as? CheckTableViewCell else {
+                fatalError("Could not cast to CheckTableViewCell")
+            }
+            cell.selectionStyle = .none
+            cell.backgroundColor = AppColor.gray.uiColor
+            return cell
         }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

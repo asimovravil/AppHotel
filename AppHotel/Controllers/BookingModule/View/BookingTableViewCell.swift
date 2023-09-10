@@ -258,81 +258,6 @@ final class BookingTableViewCell: UITableViewCell {
         return addButton
     }()
     
-    private lazy var cardCheckView: UIView = {
-        let view = UIView()
-        view.backgroundColor = AppColor.white.uiColor
-        view.layer.cornerRadius = 12
-        return view
-    }()
-    
-    private lazy var tourTitle: UILabel = {
-        let label = UILabel()
-        label.text = "Тур"
-        label.textColor = AppColor.grayDark.uiColor
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 16)
-        return label
-    }()
-    
-    private lazy var tourSubTitle: UILabel = {
-        let label = UILabel()
-        label.text = "186 600 ₽"
-        label.textColor = AppColor.black.uiColor
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 16)
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private lazy var surchargeTitle: UILabel = {
-        let label = UILabel()
-        label.text = "Топливный сбор"
-        label.textColor = AppColor.grayDark.uiColor
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 16)
-        return label
-    }()
-    
-    private lazy var surchargeSubTitle: UILabel = {
-        let label = UILabel()
-        label.text = "9 300 ₽"
-        label.textColor = AppColor.black.uiColor
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 16)
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private lazy var serviceTitle: UILabel = {
-        let label = UILabel()
-        label.text = "Сервисный сбор"
-        label.textColor = AppColor.grayDark.uiColor
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 16)
-        return label
-    }()
-    
-    private lazy var serviceSubTitle: UILabel = {
-        let label = UILabel()
-        label.text = "2 136 ₽"
-        label.textColor = AppColor.black.uiColor
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 16)
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private lazy var payTitle: UILabel = {
-        let label = UILabel()
-        label.text = "К оплате"
-        label.textColor = AppColor.grayDark.uiColor
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 16)
-        return label
-    }()
-    
-    private lazy var paySubTitle: UILabel = {
-        let label = UILabel()
-        label.text = "198 036 ₽"
-        label.textColor = AppColor.blue.uiColor
-        label.font = UIFont(name: "SFProDisplay-SemiBold", size: 16)
-        label.numberOfLines = 0
-        return label
-    }()
-    
     // MARK: - Lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -349,7 +274,7 @@ final class BookingTableViewCell: UITableViewCell {
     // MARK: - setupViews
     
     private func setupViews() {
-        [cardInfoView, starImageView, cardGradeView, cardGradeLabel, nameHotelLabel, detailHotelLabel, cardDescriptionView, departureTitle, departureSubTitle, cityTitle, citySubTitle, dateTitle, dateSubTitle, dayTitle, daySubTitle, hotelTitle, hotelSubTitle, numberTitle, numberSubTitle, nutritionTitle, nutritionSubTitle, cardBuyerInformationView, buyerTitle, phoneBuyerTextField, emailBuyerTextField, buyerSubTitle, cardAddView, touristAddTitle, addButton, cardCheckView, tourTitle, tourSubTitle, surchargeTitle, surchargeSubTitle, serviceTitle, serviceSubTitle, payTitle, paySubTitle].forEach {
+        [cardInfoView, starImageView, cardGradeView, cardGradeLabel, nameHotelLabel, detailHotelLabel, cardDescriptionView, departureTitle, departureSubTitle, cityTitle, citySubTitle, dateTitle, dateSubTitle, dayTitle, daySubTitle, hotelTitle, hotelSubTitle, numberTitle, numberSubTitle, nutritionTitle, nutritionSubTitle, cardBuyerInformationView, buyerTitle, phoneBuyerTextField, emailBuyerTextField, buyerSubTitle, cardAddView, touristAddTitle, addButton].forEach {
             contentView.addSubview($0)
         }
     }
@@ -492,43 +417,6 @@ final class BookingTableViewCell: UITableViewCell {
             make.top.equalTo(cardAddView.snp.top).offset(13)
             make.trailing.equalTo(cardAddView.snp.trailing).offset(-16)
             make.size.equalTo(32)
-        }
-        cardCheckView.snp.makeConstraints { make in
-            make.top.equalTo(cardAddView.snp.bottom).offset(8)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(156)
-        }
-        tourTitle.snp.makeConstraints { make in
-            make.top.equalTo(cardCheckView.snp.top).offset(16)
-            make.leading.equalTo(cardCheckView.snp.leading).offset(16)
-        }
-        tourSubTitle.snp.makeConstraints { make in
-            make.top.equalTo(cardCheckView.snp.top).offset(16)
-            make.trailing.equalTo(cardCheckView.snp.trailing).offset(-16)
-        }
-        surchargeTitle.snp.makeConstraints { make in
-            make.top.equalTo(tourTitle.snp.bottom).offset(16)
-            make.leading.equalTo(cardCheckView.snp.leading).offset(16)
-        }
-        surchargeSubTitle.snp.makeConstraints { make in
-            make.top.equalTo(tourSubTitle.snp.bottom).offset(16)
-            make.trailing.equalTo(cardCheckView.snp.trailing).offset(-16)
-        }
-        serviceTitle.snp.makeConstraints { make in
-            make.top.equalTo(surchargeTitle.snp.bottom).offset(16)
-            make.leading.equalTo(cardCheckView.snp.leading).offset(16)
-        }
-        serviceSubTitle.snp.makeConstraints { make in
-            make.top.equalTo(surchargeSubTitle.snp.bottom).offset(16)
-            make.trailing.equalTo(cardCheckView.snp.trailing).offset(-16)
-        }
-        payTitle.snp.makeConstraints { make in
-            make.top.equalTo(serviceTitle.snp.bottom).offset(16)
-            make.leading.equalTo(cardCheckView.snp.leading).offset(16)
-        }
-        paySubTitle.snp.makeConstraints { make in
-            make.top.equalTo(serviceSubTitle.snp.bottom).offset(16)
-            make.trailing.equalTo(cardCheckView.snp.trailing).offset(-16)
         }
     }
     
