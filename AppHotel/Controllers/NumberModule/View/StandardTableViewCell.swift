@@ -23,6 +23,8 @@ final class StandardTableViewCell: UITableViewCell {
     
     private lazy var imageCarousel: ImageCarouselCell = {
         let carousel = ImageCarouselCell(images: [UIImage(named: "hotel")!, UIImage(named: "hotel1")!, UIImage(named: "hotel2")!])
+        carousel.layer.cornerRadius = 15
+        carousel.clipsToBounds = true
         return carousel
     }()
     
@@ -161,6 +163,7 @@ final class StandardTableViewCell: UITableViewCell {
             make.top.equalTo(cardStandartView.snp.top).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(257)
         }
         
         descriptionNumberLabel.snp.makeConstraints { make in
@@ -237,5 +240,11 @@ final class StandardTableViewCell: UITableViewCell {
     }
 
     @objc private func handleSwipeRight() {
+    }
+    
+    func configure(with room: Room) {
+        descriptionNumberLabel.text = room.name
+        priceLabel.text = "\(room.price) ₽"
+        descriptionPriceLabel.text = room.price_per
     }
 }

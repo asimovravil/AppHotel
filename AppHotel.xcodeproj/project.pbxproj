@@ -15,6 +15,8 @@
 		F100C1A02AADCA4500724046 /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100C19F2AADCA4500724046 /* CheckTableViewCell.swift */; };
 		F100C1A52AADE72B00724046 /* HotelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100C1A42AADE72B00724046 /* HotelService.swift */; };
 		F100C1A72AADE74C00724046 /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100C1A62AADE74C00724046 /* Hotel.swift */; };
+		F100C1AA2AADF06B00724046 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100C1A92AADF06B00724046 /* Number.swift */; };
+		F100C1AD2AADF0E900724046 /* NumberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100C1AC2AADF0E900724046 /* NumberService.swift */; };
 		F1A357462AA878FF00A24AEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A357452AA878FF00A24AEC /* AppDelegate.swift */; };
 		F1A357482AA878FF00A24AEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A357472AA878FF00A24AEC /* SceneDelegate.swift */; };
 		F1A3574F2AA8790200A24AEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1A3574E2AA8790200A24AEC /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		F100C19F2AADCA4500724046 /* CheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTableViewCell.swift; sourceTree = "<group>"; };
 		F100C1A42AADE72B00724046 /* HotelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelService.swift; sourceTree = "<group>"; };
 		F100C1A62AADE74C00724046 /* Hotel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
+		F100C1A92AADF06B00724046 /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
+		F100C1AC2AADF0E900724046 /* NumberService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberService.swift; sourceTree = "<group>"; };
 		F1A357422AA878FF00A24AEC /* AppHotel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppHotel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1A357452AA878FF00A24AEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1A357472AA878FF00A24AEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +145,22 @@
 			isa = PBXGroup;
 			children = (
 				F100C1A42AADE72B00724046 /* HotelService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F100C1A82AADF05E00724046 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F100C1A92AADF06B00724046 /* Number.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F100C1AB2AADF0B200724046 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F100C1AC2AADF0E900724046 /* NumberService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -271,7 +291,9 @@
 		F1A358082AAB50D300A24AEC /* NumberModule */ = {
 			isa = PBXGroup;
 			children = (
+				F100C1A82AADF05E00724046 /* Model */,
 				F1A358092AAB50E300A24AEC /* View */,
+				F100C1AB2AADF0B200724046 /* Service */,
 			);
 			path = NumberModule;
 			sourceTree = "<group>";
@@ -375,6 +397,7 @@
 				F1A357E52AAABAC300A24AEC /* DetailCollectionViewCell.swift in Sources */,
 				F1A357462AA878FF00A24AEC /* AppDelegate.swift in Sources */,
 				F1A3580D2AAB522D00A24AEC /* StandardTableViewCell.swift in Sources */,
+				F100C1AD2AADF0E900724046 /* NumberService.swift in Sources */,
 				F1A357FF2AAAD42900A24AEC /* AdvantagesTableViewCell.swift in Sources */,
 				F100C1A02AADCA4500724046 /* CheckTableViewCell.swift in Sources */,
 				F1A3580F2AAB528E00A24AEC /* LuxeTableViewCell.swift in Sources */,
@@ -388,6 +411,7 @@
 				F1A358072AAB26FF00A24AEC /* ImageCarouselCell.swift in Sources */,
 				F1A3580B2AAB50FC00A24AEC /* NumberViewController.swift in Sources */,
 				F100C18B2AAC99B800724046 /* TouristTableViewCell.swift in Sources */,
+				F100C1AA2AADF06B00724046 /* Number.swift in Sources */,
 				F1A357482AA878FF00A24AEC /* SceneDelegate.swift in Sources */,
 				F100C17B2AAC51D400724046 /* BookingViewController.swift in Sources */,
 				F1A357742AA8A14500A24AEC /* AppImage.swift in Sources */,

@@ -10,6 +10,8 @@ import SnapKit
 
 final class NumberViewController: UIViewController {
     
+    private var rooms: [Room] = []
+    
     // MARK: - UI
     
     private lazy var tableView: UITableView = {
@@ -21,7 +23,7 @@ final class NumberViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = screenHeight
-        tableView.separatorStyle = .none 
+        tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
@@ -34,6 +36,7 @@ final class NumberViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupNavigationBar()
+        fetchNumber()
     }
     
     // MARK: - setupViews
@@ -53,6 +56,25 @@ final class NumberViewController: UIViewController {
             make.bottom.equalToSuperview().offset(-34)
         }
     }
+    
+    // MARK: - fetchNumber
+    
+    private func fetchNumber() {
+        NumberService.fetchNumbers { rooms, error in
+            if let error = error {
+                print("Error fetching characters: \(error)")
+                return
+            }
+            
+            if let rooms = rooms {
+                self.rooms = rooms
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+
     
     // MARK: - Actions
     
@@ -77,30 +99,36 @@ extension NumberViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: StandardTableViewCell.reuseID, for: indexPath) as? StandardTableViewCell else {
-                fatalError("Could not cast to StandardTableViewCell")
+            if indexPath.section == 0 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: StandardTableViewCell.reuseID, for: indexPath) as? StandardTableViewCell else {
+                    fatalError("Could not cast to StandardTableViewCell")
+                }
+                cell.standartNumberButtonTappedHandler = {
+                    let bookingViewController = BookingViewController()
+                    self.navigationController?.pushViewController(bookingViewController, animated: true)
+                }
+                cell.selectionStyle = .none
+                cell.backgroundColor = AppColor.gray.uiColor
+                if let room = rooms.first {
+                    cell.configure(with: room)
+                }
+                return cell
+            } else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: LuxeTableViewCell.reuseID, for: indexPath) as? LuxeTableViewCell else {
+                    fatalError("Could not cast to LuxeTableViewCell")
+                }
+                cell.luxeNumberButtonTappedHandler = {
+                    let bookingViewController = BookingViewController()
+                    self.navigationController?.pushViewController(bookingViewController, animated: true)
+                }
+                cell.selectionStyle = .none
+                cell.backgroundColor = AppColor.gray.uiColor
+                if let room = rooms.first {
+                    cell.configure(with: room)
+                }
+                return cell
             }
-            cell.standartNumberButtonTappedHandler = {
-                let bookingViewController = BookingViewController()
-                self.navigationController?.pushViewController(bookingViewController, animated: true)
-            }
-            cell.selectionStyle = .none
-            cell.backgroundColor = AppColor.gray.uiColor
-            return cell
-        } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: LuxeTableViewCell.reuseID, for: indexPath) as? LuxeTableViewCell else {
-                fatalError("Could not cast to LuxeTableViewCell")
-            }
-            cell.luxeNumberButtonTappedHandler = {
-                let bookingViewController = BookingViewController()
-                self.navigationController?.pushViewController(bookingViewController, animated: true)
-            }
-            cell.selectionStyle = .none
-            cell.backgroundColor = AppColor.gray.uiColor
-            return cell
         }
-    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
