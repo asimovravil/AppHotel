@@ -144,7 +144,7 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.section == 0 {
             return 730.0
         } else if indexPath.section == 1 {
-            return 1000.0
+            return CGFloat(tourists.count) + 440
         } else if indexPath.section == 2 {
             return 160.0
         }

@@ -179,6 +179,7 @@ final class TouristTableViewCell: UITableViewCell {
             make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview()
             cardViewHeightConstraint = make.height.equalTo(430).constraint
+            make.bottom.equalToSuperview().offset(-8)
         }
         touristTitle.snp.makeConstraints { make in
             make.top.equalTo(cardTouristView.snp.top).offset(16)
