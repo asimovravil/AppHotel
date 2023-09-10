@@ -114,8 +114,14 @@ final class BookingViewController: UIViewController {
     
     @objc private func paymentButtonTapped() {
         let controller = AcceptedViewController()
+        // Пример установки имени для нового туриста
+        var newTourist = Tourist()
+        newTourist.name = "Турист \(tourists.count + 1)"
+        tourists.append(newTourist)
+        self.tableView.reloadData()
         self.navigationController?.pushViewController(controller, animated: true)
     }
+
     
 }
 
@@ -164,6 +170,7 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
             }
             let tourist = tourists[indexPath.row]
             cell.configure(with: tourist)
+            cell.touristTitle.text = "Турист \(indexPath.row + 1)"
             cell.selectionStyle = .none
             cell.backgroundColor = AppColor.gray.uiColor
             return cell

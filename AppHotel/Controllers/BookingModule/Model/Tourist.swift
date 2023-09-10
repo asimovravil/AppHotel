@@ -7,6 +7,10 @@
 
 import Foundation
 
+class TouristName {
+    var name: String = ""
+}
+
 struct Tourist {
     var name: String?
     var lastName: String?

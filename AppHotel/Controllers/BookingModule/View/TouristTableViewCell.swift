@@ -48,7 +48,7 @@ final class TouristTableViewCell: UITableViewCell {
         return view
     }()
     
-    private lazy var touristTitle: UILabel = {
+    public lazy var touristTitle: UILabel = {
         let label = UILabel()
         label.text = "Первый турист"
         label.textColor = AppColor.black.uiColor
