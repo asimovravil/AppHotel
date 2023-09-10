@@ -11,6 +11,7 @@ import SnapKit
 final class BookingViewController: UIViewController {
     
     var tourists: [Tourist] = []
+    private var booking: [Book] = []
     
     // MARK: - UI
     
@@ -70,6 +71,25 @@ final class BookingViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupNavigationBar()
+        fetchBook()
+    }
+    
+    // MARK: - fetchBooking
+    
+    private func fetchBook() {
+        BookService.fetchBooking { book, error in
+            if let error = error {
+                print("Error fetching book: \(error)")
+                return
+            }
+
+            if let book = book {
+                self.booking = [book]
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
     // MARK: - setupViews
@@ -114,7 +134,6 @@ final class BookingViewController: UIViewController {
     
     @objc private func paymentButtonTapped() {
         let controller = AcceptedViewController()
-        // Пример установки имени для нового туриста
         var newTourist = Tourist()
         newTourist.name = "Турист \(tourists.count + 1)"
         tourists.append(newTourist)
@@ -163,6 +182,9 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
             }
             cell.selectionStyle = .none
             cell.backgroundColor = AppColor.gray.uiColor
+            if let book = booking.first {
+                cell.configure(with: book)
+            }
             return cell
         } else if indexPath.section == 1 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TouristTableViewCell.reuseID, for: indexPath) as? TouristTableViewCell else {
@@ -180,6 +202,9 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
             }
             cell.selectionStyle = .none
             cell.backgroundColor = AppColor.gray.uiColor
+            if let book = booking.first {
+                cell.configure(with: book)
+            }
             return cell
         }
         return UITableViewCell()

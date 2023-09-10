@@ -17,6 +17,8 @@
 		F100C1A72AADE74C00724046 /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100C1A62AADE74C00724046 /* Hotel.swift */; };
 		F100C1AA2AADF06B00724046 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100C1A92AADF06B00724046 /* Number.swift */; };
 		F100C1AD2AADF0E900724046 /* NumberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100C1AC2AADF0E900724046 /* NumberService.swift */; };
+		F100C1B02AADF83700724046 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100C1AF2AADF83700724046 /* BookService.swift */; };
+		F100C1B22AADF83E00724046 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100C1B12AADF83E00724046 /* Book.swift */; };
 		F1A357462AA878FF00A24AEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A357452AA878FF00A24AEC /* AppDelegate.swift */; };
 		F1A357482AA878FF00A24AEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A357472AA878FF00A24AEC /* SceneDelegate.swift */; };
 		F1A3574F2AA8790200A24AEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1A3574E2AA8790200A24AEC /* Assets.xcassets */; };
@@ -56,6 +58,8 @@
 		F100C1A62AADE74C00724046 /* Hotel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
 		F100C1A92AADF06B00724046 /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		F100C1AC2AADF0E900724046 /* NumberService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberService.swift; sourceTree = "<group>"; };
+		F100C1AF2AADF83700724046 /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookService.swift; sourceTree = "<group>"; };
+		F100C1B12AADF83E00724046 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		F1A357422AA878FF00A24AEC /* AppHotel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppHotel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1A357452AA878FF00A24AEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1A357472AA878FF00A24AEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			children = (
 				F100C1A12AADDFB600724046 /* Model */,
 				F100C17F2AAC62A200724046 /* View */,
+				F100C1AE2AADF82800724046 /* Service */,
 			);
 			path = BookingModule;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				F100C19D2AAD81C200724046 /* Tourist.swift */,
+				F100C1B12AADF83E00724046 /* Book.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +167,14 @@
 			isa = PBXGroup;
 			children = (
 				F100C1AC2AADF0E900724046 /* NumberService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F100C1AE2AADF82800724046 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F100C1AF2AADF83700724046 /* BookService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -398,6 +412,7 @@
 				F1A357462AA878FF00A24AEC /* AppDelegate.swift in Sources */,
 				F1A3580D2AAB522D00A24AEC /* StandardTableViewCell.swift in Sources */,
 				F100C1AD2AADF0E900724046 /* NumberService.swift in Sources */,
+				F100C1B02AADF83700724046 /* BookService.swift in Sources */,
 				F1A357FF2AAAD42900A24AEC /* AdvantagesTableViewCell.swift in Sources */,
 				F100C1A02AADCA4500724046 /* CheckTableViewCell.swift in Sources */,
 				F1A3580F2AAB528E00A24AEC /* LuxeTableViewCell.swift in Sources */,
@@ -405,6 +420,7 @@
 				F100C17D2AAC546800724046 /* BookingTableViewCell.swift in Sources */,
 				F1A357E32AAABABB00A24AEC /* MainCollectionViewCell.swift in Sources */,
 				F1A357E72AAABB8300A24AEC /* SectionType.swift in Sources */,
+				F100C1B22AADF83E00724046 /* Book.swift in Sources */,
 				F100C19E2AAD81C200724046 /* Tourist.swift in Sources */,
 				F1A357722AA8A00100A24AEC /* AppColor.swift in Sources */,
 				F1A3576A2AA89D9000A24AEC /* HotelViewController.swift in Sources */,

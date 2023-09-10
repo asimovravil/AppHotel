@@ -150,5 +150,11 @@ final class CheckTableViewCell: UITableViewCell {
             make.trailing.equalTo(cardCheckView.snp.trailing).offset(-16)
         }
     }
+    
+    func configure(with book: Book) {
+        tourSubTitle.text = "\(book.tour_price) ₽"
+        surchargeSubTitle.text = "\(book.fuel_charge) ₽"
+        serviceSubTitle.text = "\(book.service_charge) ₽"
+    }
 }
 

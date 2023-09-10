@@ -370,12 +370,12 @@ final class BookingTableViewCell: UITableViewCell {
             make.trailing.equalTo(cardDescriptionView.snp.trailing).offset(-16)
         }
         nutritionTitle.snp.makeConstraints { make in
-            make.top.equalTo(numberTitle.snp.bottom).offset(35)
             make.leading.equalTo(cardDescriptionView.snp.leading).offset(16)
+            make.bottom.equalTo(cardDescriptionView.snp.bottom).offset(-16)
         }
         nutritionSubTitle.snp.makeConstraints { make in
-            make.top.equalTo(numberSubTitle.snp.bottom).offset(16)
             make.leading.equalTo(nutritionTitle.snp.trailing).offset(79)
+            make.bottom.equalTo(cardDescriptionView.snp.bottom).offset(-16)
         }
         cardBuyerInformationView.snp.makeConstraints { make in
             make.top.equalTo(cardDescriptionView.snp.bottom).offset(8)
@@ -424,5 +424,14 @@ final class BookingTableViewCell: UITableViewCell {
     
     @objc private func addTouristButtonTapped() {
         addTouristButtonAction?()
+    }
+    
+    func configure(with book: Book) {
+        departureSubTitle.text = book.departure
+        citySubTitle.text = book.arrival_country
+        dateSubTitle.text = "\(book.tour_date_start) - \(book.tour_date_stop)"
+        daySubTitle.text = "\(book.number_of_nights) ночей"
+        numberSubTitle.text = book.room
+        nutritionSubTitle.text = book.nutrition
     }
 }
