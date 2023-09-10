@@ -230,5 +230,11 @@ extension DetailCollectionViewCell: UITableViewDataSource, UITableViewDelegate {
         }
         return cell
     }
+    
+    // MARK: - Actions
+    
+    func configure(with hotel: Hotel) {
+        descriptionLabel.text = hotel.about_the_hotel.description
+    }
 }
 

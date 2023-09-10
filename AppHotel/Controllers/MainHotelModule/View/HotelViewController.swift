@@ -11,6 +11,7 @@ import SnapKit
 final class HotelViewController: UIViewController {
 
     let sections: [SectionType] = [.main, .detail]
+    private var hotels: [Hotel] = []
 
     // MARK: - UI
     
@@ -50,6 +51,25 @@ final class HotelViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupNavigationBar()
+        fetchHotel()
+    }
+    
+    // MARK: - fetchHotel
+    
+    private func fetchHotel() {
+        HotelService.fetchHotels { hotel, error in
+            if let error = error {
+                print("Error fetching hotel: \(error)")
+                return
+            }
+
+            if let hotel = hotel {
+                self.hotels = [hotel]
+                DispatchQueue.main.async {
+                    self.mainCollectionView.reloadData()
+                }
+            }
+        }
     }
     
     // MARK: - setupViews
@@ -159,10 +179,19 @@ extension HotelViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if sections[indexPath.section] == .main {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.reuseID, for: indexPath) as! MainCollectionViewCell
+            
+            if let hotel = hotels.first {
+                cell.configure(with: hotel)
+            }
+            
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionViewCell.reuseID, for: indexPath) as! DetailCollectionViewCell
+            if let hotel = hotels.first {
+                cell.configure(with: hotel)
+            }
             return cell
         }
     }
+
 }

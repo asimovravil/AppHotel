@@ -23,6 +23,8 @@ final class MainCollectionViewCell: UICollectionViewCell {
     
     private lazy var imageCarousel: ImageCarouselCell = {
         let carousel = ImageCarouselCell(images: [UIImage(named: "hotel")!, UIImage(named: "hotel1")!, UIImage(named: "hotel2")!])
+        carousel.layer.cornerRadius = 15
+        carousel.clipsToBounds = true
         return carousel
     }()
     
@@ -120,6 +122,7 @@ final class MainCollectionViewCell: UICollectionViewCell {
             make.top.equalToSuperview()
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(257)
         }
         cardGradeView.snp.makeConstraints { make in
             make.top.equalTo(imageCarousel.snp.bottom).offset(16)
@@ -141,6 +144,7 @@ final class MainCollectionViewCell: UICollectionViewCell {
         nameHotelLabel.snp.makeConstraints { make in
             make.top.equalTo(cardGradeView.snp.bottom).offset(8)
             make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
         }
         detailHotelLabel.snp.makeConstraints { make in
             make.top.equalTo(nameHotelLabel.snp.bottom).offset(8)
@@ -163,5 +167,13 @@ final class MainCollectionViewCell: UICollectionViewCell {
     }
 
     @objc private func handleSwipeRight() {
+    }
+    
+    // MARK: - Actions
+    
+    func configure(with hotel: Hotel) {
+        nameHotelLabel.text = hotel.name
+        detailHotelLabel.text = hotel.adress
+        priceLabel.text = "от \(hotel.minimal_price) ₽"
     }
 }
