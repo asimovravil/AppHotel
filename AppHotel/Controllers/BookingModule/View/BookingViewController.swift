@@ -134,10 +134,6 @@ final class BookingViewController: UIViewController {
     
     @objc private func paymentButtonTapped() {
         let controller = AcceptedViewController()
-        var newTourist = Tourist()
-        newTourist.name = "Турист \(tourists.count + 1)"
-        tourists.append(newTourist)
-        self.tableView.reloadData()
         self.navigationController?.pushViewController(controller, animated: true)
     }
 
