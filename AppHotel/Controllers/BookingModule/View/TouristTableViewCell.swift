@@ -265,4 +265,13 @@ final class TouristTableViewCell: UITableViewCell {
             self.contentView.layoutIfNeeded()
         }
     }
+    func configure(with tourist: Tourist) {
+          // Set the text fields' values based on the tourist data
+          nameTouristTextField.text = tourist.name
+          lastNameTouristTextField.text = tourist.lastName
+          dateTouristTextField.text = tourist.dateOfBirth
+          citizenshipTouristTextField.text = tourist.citizenship
+          passportTouristTextField.text = tourist.passportNumber
+          datePassportTouristTextField.text = tourist.passportExpirationDate
+      }
 }

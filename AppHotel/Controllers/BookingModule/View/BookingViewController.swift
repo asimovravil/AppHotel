@@ -10,6 +10,8 @@ import SnapKit
 
 final class BookingViewController: UIViewController {
     
+    var tourists: [Tourist] = []
+    
     // MARK: - UI
     
     private lazy var tableView: UITableView = {
@@ -43,6 +45,22 @@ final class BookingViewController: UIViewController {
         return button
     }()
     
+    private lazy var cardAddButton: UIView = {
+        let view = UIView()
+        view.backgroundColor = AppColor.white.uiColor
+        view.layer.cornerRadius = 12
+        return view
+    }()
+    
+    private lazy var addTouristTitle: UILabel = {
+        let label = UILabel()
+        label.text = "Добавить туриста"
+        label.textColor = AppColor.black.uiColor
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 22)
+        label.numberOfLines = 0
+        return label
+    }()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -57,7 +75,7 @@ final class BookingViewController: UIViewController {
     
     private func setupViews() {
         view.addSubview(tableView)
-        [tableView, cardButtonView, paymentButton].forEach {
+        [tableView, cardButtonView, paymentButton, cardAddButton, addTouristTitle].forEach {
             view.addSubview($0)
         }
         view.backgroundColor = AppColor.white.uiColor
@@ -108,16 +126,16 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         if section == 0 {
             return 1
         } else if section == 1 {
-            return 1
+            return tourists.count
         }
         return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 665.0
+            return 730.0
         } else if indexPath.section == 1 {
-            return 1000.0
+            return 900.0
         }
         return UITableView.automaticDimension
     }
@@ -127,6 +145,11 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: BookingTableViewCell.reuseID, for: indexPath) as? BookingTableViewCell else {
                 fatalError("Could not cast to BookingTableViewCell")
             }
+            cell.addTouristButtonAction = { [weak self] in
+                let newTourist = Tourist()
+                self?.tourists.append(newTourist)
+                self?.tableView.reloadData()
+            }
             cell.selectionStyle = .none
             cell.backgroundColor = AppColor.gray.uiColor
             return cell
@@ -134,6 +157,8 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TouristTableViewCell.reuseID, for: indexPath) as? TouristTableViewCell else {
                 fatalError("Could not cast to TouristTableViewCell")
             }
+            let tourist = tourists[indexPath.row]
+            cell.configure(with: tourist)
             cell.selectionStyle = .none
             cell.backgroundColor = AppColor.gray.uiColor
             return cell

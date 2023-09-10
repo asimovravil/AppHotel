@@ -10,6 +10,7 @@ import SnapKit
 
 final class BookingTableViewCell: UITableViewCell {
     static let reuseID = String(describing: BookingTableViewCell.self)
+    var addTouristButtonAction: (() -> Void)?
     
     // MARK: - UI
     
@@ -234,6 +235,29 @@ final class BookingTableViewCell: UITableViewCell {
         return label
     }()
     
+    private lazy var cardAddView: UIView = {
+        let view = UIView()
+        view.backgroundColor = AppColor.white.uiColor
+        view.layer.cornerRadius = 12
+        return view
+    }()
+    
+    private lazy var touristAddTitle: UILabel = {
+        let label = UILabel()
+        label.text = "Добавить туриста"
+        label.textColor = AppColor.black.uiColor
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 22)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private lazy var addButton: UIButton = {
+        let addButton = UIButton(type: .system)
+        addButton.setImage(AppImage.addbutton.uiImage, for: .normal)
+        addButton.addTarget(self, action: #selector(addTouristButtonTapped), for: .touchUpInside)
+        return addButton
+    }()
+    
     // MARK: - Lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -250,7 +274,7 @@ final class BookingTableViewCell: UITableViewCell {
     // MARK: - setupViews
     
     private func setupViews() {
-        [cardInfoView, starImageView, cardGradeView, cardGradeLabel, nameHotelLabel, detailHotelLabel, cardDescriptionView, departureTitle, departureSubTitle, cityTitle, citySubTitle, dateTitle, dateSubTitle, dayTitle, daySubTitle, hotelTitle, hotelSubTitle, numberTitle, numberSubTitle, nutritionTitle, nutritionSubTitle, cardBuyerInformationView, buyerTitle, phoneBuyerTextField, emailBuyerTextField, buyerSubTitle].forEach {
+        [cardInfoView, starImageView, cardGradeView, cardGradeLabel, nameHotelLabel, detailHotelLabel, cardDescriptionView, departureTitle, departureSubTitle, cityTitle, citySubTitle, dateTitle, dateSubTitle, dayTitle, daySubTitle, hotelTitle, hotelSubTitle, numberTitle, numberSubTitle, nutritionTitle, nutritionSubTitle, cardBuyerInformationView, buyerTitle, phoneBuyerTextField, emailBuyerTextField, buyerSubTitle, cardAddView, touristAddTitle, addButton].forEach {
             contentView.addSubview($0)
         }
     }
@@ -380,5 +404,25 @@ final class BookingTableViewCell: UITableViewCell {
             make.leading.equalTo(cardBuyerInformationView.snp.leading).offset(16)
             make.trailing.equalTo(cardBuyerInformationView.snp.trailing).offset(-16)
         }
+        cardAddView.snp.makeConstraints { make in
+            make.top.equalTo(cardBuyerInformationView.snp.bottom).offset(8)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(58)
+        }
+        touristAddTitle.snp.makeConstraints { make in
+            make.top.equalTo(cardAddView.snp.top).offset(16)
+            make.leading.equalTo(cardAddView.snp.leading).offset(16)
+        }
+        addButton.snp.makeConstraints { make in
+            make.top.equalTo(cardAddView.snp.top).offset(13)
+            make.trailing.equalTo(cardAddView.snp.trailing).offset(-16)
+            make.size.equalTo(32)
+        }
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func addTouristButtonTapped() {
+        addTouristButtonAction?()
     }
 }
